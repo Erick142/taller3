@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row row-cols-1 g-3">
       <div v-for="producto in productos" :key="producto._id" class="col">
+        <a :href="'localhost:8080/producto/'+producto._id"> ir a la publicacion</a>
         <div class="card">
           <img :src="producto.images[0]" class="card-img-top" alt="..." style="">
           <div class="card-body">
