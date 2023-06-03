@@ -48,7 +48,7 @@
 import axios from "axios";
 
 export default {
-    name: "detalleUsuario",
+    name: "DetalleUsuario",
     data() {
         return {
             usuario: "",
@@ -62,10 +62,9 @@ export default {
     methods: {
 
         obtenerUser() {
-            //let BASE_URL = "http://ec2-54-163-208-73.compute-1.amazonaws.com:8080/users/"+this.id+"/reviews";
-            axios.get("http://ec2-54-163-208-73.compute-1.amazonaws.com:8080/users/" + this.id + "/reviews").then((response) => {
+            const BASE_URL = "http://ec2-54-163-208-73.compute-1.amazonaws.com:8080/users/";
+            axios.get(BASE_URL + this.id + "/reviews").then((response) => {
                 this.usuario = response.data.user;
-                console.log(this.usuario);
                 this.nombre = response.data.user.name;
                 this.ciudad = response.data.user.city;
                 this.foto = response.data.user.photo;
@@ -102,49 +101,3 @@ export default {
   width: 30%;
 }
     -->
-
-
-
-<!--
-
-<template>
-  <div id="App">
-    <h1>
-      
-
-      <input type="text" v-model="id" placeholder="">
-      <button @click="sendValue">Enviar consulta</button>
-
-    </h1>
-
-    <div>
-      El usuario es:
-      <ListaUsuarios/>
-    </div>
-  </div>
-</template>
-
-
-
-
-<script>
-import ListaUsuarios from "./components/PerfilUsuario.vue";
-//const expNum = /^[0-9]/;
-export default {
-  name:"App",
-  components: {ListaUsuarios}
-};
-
-</script>
-
-<style scoped>
-</style>
-
--->
-
-<!--
-Consultar API
-      
-      <button @click="buscar(1)">Consultar</button>
-      -->
-
