@@ -8,7 +8,7 @@ import DetalleUsuario from "./components/PerfilUsuario.vue"
 import DetalleProducto from "./components/DetallesProducto.vue"
 
 const routes=[
-    {path: "/listado", component: ListadoProducto},
+    {path: "", component: ListadoProducto},
     {path: "/perfil/:id", component: DetalleUsuario},
     {path:"/producto/:id", component: DetalleProducto}
 ]

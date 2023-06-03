@@ -1,26 +1,34 @@
 <template>
   <div class="container">
-    <div class="row row-cols-1 g-3">
+    <div class="row mb-5">
+      <div class="col d-flex justify-content-center">
+        <h1 class="text-decoration-underline">Listado</h1>
+      </div>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 g-3">
       <div v-for="producto in productos" :key="producto._id" class="col">
-        <a :href="'localhost:8080/producto/'+producto._id"> ir a la publicacion</a>
-        <div class="card">
-          <img :src="producto.images[0]" class="card-img-top" alt="..." style="">
-          <div class="card-body">
-            <h5 class="card-title">{{producto.name}}</h5>
-            <p class="card-text">
-              {{producto.description}}
-            </p>
-            <p class="card-text">
-              {{producto.createdAt}}
-            </p>
-            <p class="card-text">
-              {{producto.price}}
-            </p>
-            <p class="card-text">
-              {{producto.user.city}}
-            </p>
+        <router-link :to="`producto/${producto._id}`" class="no_style">
+          <div class="card h-100" style="">
+            <h5 class="card-header text-decoration-underline">{{ producto.name }}</h5>
+            <div class="row">
+              <div class="col-4">
+                <img :src="producto.images[0]" class="img-fluid" alt="..." />
+              </div>
+              <div class="col-8">
+                <div class="card-body">
+                <h5 class="card-title">{{ producto.price }}</h5>
+                <p class="card-text">
+                  {{ producto.description }}
+                </p>
+              </div>
+              </div>
+            </div>
+            <div class="card-footer text-body-secondary d-flex justify-content-between h-100">
+              <span>{{ producto.createdAt }}</span>
+              <span>{{ producto.user.city }}</span>
+            </div>
           </div>
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -55,4 +63,7 @@ export default {
 </script>
 
 <style>
+.no_style {
+  text-decoration: none;
+}
 </style>
